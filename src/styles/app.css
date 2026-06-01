@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #080808;
+  --color-surface: #121212;
+  --color-gold: #c6a15b;
+  --color-cream: #f5f1e8;
+  --color-secondary-text: #9a9a9a;
+  --color-highlight: #d8b26a;
+
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-sans: 'Inter', 'Satoshi', 'Neue Montreal', sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-background text-cream font-sans overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  .using-mouse * {
+    outline: none !important;
+  }
+
+  @keyframes slow-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+
+  @keyframes music-bar {
+    0%, 100% { height: 20%; }
+    50% { height: 100%; }
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 20s infinite alternate ease-in-out;
+  }
+
+  .animate-music-bar {
+    animation: music-bar 1s infinite ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+  }
+}
